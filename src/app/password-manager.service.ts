@@ -9,7 +9,7 @@ import {
   deleteDoc,
 } from '@angular/fire/firestore';
 
-import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -71,5 +71,9 @@ export class PasswordManagerService {
 
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  logout() {
+    return signOut(this.auth);
   }
 }
